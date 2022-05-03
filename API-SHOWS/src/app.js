@@ -3,7 +3,6 @@ const app = express();
 
 app.use(express.json());
 
-
 const db = require('./infra/sqliteDb');
 
 app.get('/', (req, res) => {
