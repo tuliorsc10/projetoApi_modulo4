@@ -1,22 +1,24 @@
 const res = require("express/lib/response")
-const bd = require("../infra/sq-litebd")
-const PratosPrincipaisConstructor = require("../model/ModelPratoPrincipal")
+const bd = require("../infra/sqlite-bd")
+const BurguerConstructor = require("../model/ModelHamburguer")
+const PratoPrincipalDAO= require('../DAO/pratoPrincipalDAO')
 
 const pratoPrincipal = (app,bd) => {
-    app.get('/clientes', (req,res) => {
-            bd.all(`SELECT * FROM PRATOS_PRINCIPAIS`, (error, rows) =>{
-                if(error) {
-                    res.json("Erro ao selecionar o Banco")
-                } else {
-                    res.json({"Banco Pratos Principais selecionado" : rows})
-                }
+
+    const instanciaPratoPrincipalDao = new PratoPrincipalDAO(bd)
+    app.get('/pratoprincipal', function(req,res) {
+        instanciaPratoPrincipalDao.listarPratosPrincipais()
+        .then((resposta) => {
+            res.json(resposta)
+        }).catch((error) => {
+            res.json(error)
         })
     })
 
-    app.get('/clientes/:id', (req,res) => {
+    app.get('/pratoprincipal/:id', (req,res) => {
         const requisicao = req.params.id
 
-        bd.all(`SELECT * FROM CLIENTES WHERE id = ${requisicao}`, (error, rows) => {
+        bd.all(`SELECT * FROM PRATOS_PRINCIPAIS WHERE id = ${requisicao}`, (error, rows) => {
             if(error) {
                 console.log(typeof requisicao, requisicao)
                 res.json({"Erro ao retornar nome" : error})
@@ -28,12 +30,12 @@ const pratoPrincipal = (app,bd) => {
         })
     })
 
-    app.post('/usuario', (req,res) =>{
+    app.post('/pratoprincipal', (req,res) =>{
         const add = req.body
         console.log(add)
-        bd.all(`INSERT INTO CLIENTES (NOME,CPF,EMAIL,SENHA) VALUES(?,?,?,?)`, 
-        [add.nome, add.cpf, add.email, add.senha])
-        res.send("foi")
+        bd.all(`INSERT INTO PRATOS_PRINCIPAIS (ID, TITULO, PRECO, INGREDIENTES) VALUES(?,?,?,?)`, 
+        [add.id, add.titulo, add.preco, add.ingredientes])
+        res.send("Item prato principal Cadastrado")
     })
 
 }
