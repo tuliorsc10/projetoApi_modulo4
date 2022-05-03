@@ -49,9 +49,12 @@ const show = (app,db) => {
         const id = req.params.id
         const data = async() => {
             try{
-                const showAlterado = new Show(body.banda, body.data, body.horario)
+                const showid = await showDAO.listarShowsPorId(id)
+                const showAlterado = new Show(body.banda || showid[0].nome,
+                                              body.data || showid[0].data,
+                                              body.horario || showid[0].horario)
                 const show = await showDAO.alteraShow(id, showAlterado)
-                res.status(200).json(showAlterado) 
+                res.status(200).json(show) 
             }catch(error){
                 res.status(400).json(error)
             }           
