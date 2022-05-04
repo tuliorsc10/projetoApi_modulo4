@@ -47,7 +47,28 @@ const sobremesa = (app,bd) => {
         
     })
 
-    app.put('/sobremesa/id', )
+    app.put('/sobremesa/:id', async (req, res) => {
+        const id = req.params.id
+        const alteraSobremesa = req.body
+        console.log(alteraSobremesa)
+
+        const altera = async ()  => {
+            try{
+                const buscaBanco = await instanciaSobremesaDao.listarSobremesas(id)
+                const NovoObjeto = new SobremesasConstructor(alteraSobremesa.titulo,
+                alteraSobremesa.preco, alteraSobremesa.ingredientes)
+                console.log(NovoObjeto)
+                const novoDado = await instanciaSobremesaDao.alteraSobremesas(id,NovoObjeto)
+                
+                res.json(novoDado) 
+            }catch(error){
+                res.json(error)
+                console.log(error)
+            }           
+        }
+        
+        altera()
+    })
 
     app.delete('/sobremesa/:id', async (req,res) => {
         

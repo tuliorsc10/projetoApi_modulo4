@@ -26,6 +26,19 @@ class SobremesaDAO {
         })
     }
 
+    alteraSobremesas(id,alteraSobremesa) {
+        return new Promise ((resolve, reject) => {
+            this.bd.run(`update sobremesa set titulo = ?, preco = ?, ingredientes = ? where id =?`, alteraSobremesa.titulo, alteraSobremesa.preco, alteraSobremesa.ingredientes,id, (error) =>{
+                if(error) {
+                    reject("Erro ao alterar o banco")
+                }  else {
+                    console.log(alteraSobremesa)
+                    resolve("Alteração bem sucedida")
+                }
+            })
+        })
+    }
+
     deletaSobremesa(id) {
         return new Promise ((resolve, reject) => {
             this.bd.run(`delete from sobremesa where titulo = ${id} `, (error) => {
