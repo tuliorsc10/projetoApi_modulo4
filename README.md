@@ -66,6 +66,6 @@ $ npm start
 
 # Autores
 
-| [<img src="https://avatars.githubusercontent.com/u/96267872?v=4" width=115><br><sub>Túlio Roberto</sub>](https://github.com/tuliorsc10) |  [<img src="https://avatars.githubusercontent.com/u/96401679?v=4" width=115><br><sub>Diego Luz da Silva</sub>](https://github.com/diegoed1) |  [<img src="https://avatars.githubusercontent.com/u/55266551?v=4" width=115><br><sub>Anderson Souza</sub>](https://github.com/Andersonjmc) |
+| [<img src="https://avatars.githubusercontent.com/u/96267872?v=4" width=115><br><sub>Túlio Roberto</sub>](https://github.com/tuliorsc10) |  [<img src="https://avatars.githubusercontent.com/u/96401679?v=4" width=115><br><sub>Diego Luz da Silva</sub>](https://github.com/diegoed1) |  [<img src="https://avatars.githubusercontent.com/u/96266819?v=4" width=115><br><sub>Anderson Souza</sub>](https://github.com/Andersonjmc) |
 | :---: | :---: | :---: |
 | [<img src="https://avatars.githubusercontent.com/u/96267809?v=4" width=115><br><sub>Daniel Bennesby</sub>](https://github.com/DanielBennesby) |  [<img src="https://avatars.githubusercontent.com/u/96209345?v=4" width=115><br><sub>Damasio Ramos</sub>](https://github.com/DamasioRamos) |
