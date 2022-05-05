@@ -1,0 +1,24 @@
+{
+  "name": "revisao",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "banco": "node ./src/infra/create-and-populate.js",
+    "start": "node ./src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tuliorsc10/projetoApi_modulo4"
+  },
+  "keywords": [],
+  "author": "Anderson Souza",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "sqlite3": "^5.0.6",
+    "supertest": "^6.2.3"
+  }
+}
