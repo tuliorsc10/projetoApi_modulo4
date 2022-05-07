@@ -4,15 +4,18 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "banco":"node ./src/infra/create_and_populate.js",
-    "start":"node ./src/app.js",
+    "banco": "node src/infra/createAndPopulate.js",
+    "start": "node ./src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Daniel",
+  "url": "https://github.com/DanielBennesby",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.1",
-    "sqlite3": "^5.0.8"
+    "nodemon": "^2.0.16",
+    "sqlite3": "^5.0.8",
+    "supertest": "^6.2.3"
   }
 }
