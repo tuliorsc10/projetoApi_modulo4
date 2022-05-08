@@ -32,10 +32,36 @@ const sobremesa = (app,bd) => {
 
     app.post('/sobremesa', (req,res) =>{
         const add = req.body
-        console.log(add)
-        bd.all(`INSERT INTO SOBREMESA (ID, TITULO, PRECO, INGREDIENTES) VALUES(?,?,?,?)`, 
-        [add.id, add.titulo, add.preco, add.ingredientes])
-        res.send("Item Sobremesa Cadastrado")
+        // console.log(add)
+        const NovaSobremesa = new SobremesasConstructor(add.titulo, add.preco, add.ingredientes)
+        
+        const data = async()=> {
+            try {
+                const sobreNova = await instanciaSobremesaDao.insereSobremesas(NovaSobremesa)
+                res.send(sobreNova)
+            } catch(err) {
+                res.send("A sobremesa não foi inserida")
+            }
+        }
+        data()
+        
+    })
+
+    app.put('/sobremesa/id', )
+
+    app.delete('/sobremesa/:id', async (req,res) => {
+        
+        const deleta = async () => {
+            const retira = req.params.id
+            console.log(retira)
+        try {
+            const del = await instanciaSobremesaDao.deletaSobremesa(retira)
+            res.json(del)
+        }catch (error) {
+            res.send("O item não foi excluido")
+        }
+    }
+        deleta()
     })
 
 }
