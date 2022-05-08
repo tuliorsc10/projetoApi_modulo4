@@ -2,7 +2,7 @@ const Bebida = require('../models/models')
 const BebidaDAO = require('../dao/bebidasdao')
 
 const bebida = (app,db) => {
-    const bebidaDAO = new bebidaDAO(db)
+    const bebidaDAO = new BebidaDAO(db)
 
     app.get('/bebida', (req, res) =>{
         const data = async() => {
